@@ -5,7 +5,7 @@ interface SendMoneyRequest {
   amount: number;
 }
 
-interface Transaction {
+export interface Transaction {
   id: string;
   type: 'sent' | 'received' | 'bills' | 'airtime' | 'withdraw';
   amount: number;
