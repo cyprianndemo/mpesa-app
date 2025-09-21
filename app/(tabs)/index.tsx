@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, RefreshControl } from 'react-native';
 import { Eye, EyeOff, Send, Download, Receipt, Smartphone, Banknote } from 'lucide-react-native';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../providers/AuthProvider';
 import { getBalance, getRecentTransactions } from '../../services/mpesaService';
+import type { Transaction } from '../../services/mpesaService';
 import { BalanceCard } from '../../components/BalanceCard';
 import { QuickActionCard } from '../../components/QuickActionCard';
 import { TransactionItem } from '../../components/TransactionItem';
@@ -11,7 +12,7 @@ export default function HomeScreen() {
   const { user } = useAuth();
   const [balance, setBalance] = useState<string>('0.00');
   const [isBalanceVisible, setIsBalanceVisible] = useState(true);
-  const [recentTransactions, setRecentTransactions] = useState([]);
+  const [recentTransactions, setRecentTransactions] = useState<Transaction[]>([]);
   const [refreshing, setRefreshing] = useState(false);
   const [loading, setLoading] = useState(true);
 

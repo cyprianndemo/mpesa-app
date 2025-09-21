@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import { Settings, Shield, Bell, CircleHelp as HelpCircle, LogOut, ChevronRight, User } from 'lucide-react-native';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../providers/AuthProvider';
 import { useRouter } from 'expo-router';
 
 export default function ProfileScreen() {

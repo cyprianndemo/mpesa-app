@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import * as SecureStore from 'expo-secure-store';
 
 interface User {
@@ -8,23 +8,8 @@ interface User {
   email?: string;
 }
 
-interface AuthContextType {
-  user: User | null;
-  isAuthenticated: boolean;
-  login: (phoneNumber: string, otp: string) => Promise<boolean>;
-  logout: () => Promise<void>;
-  loading: boolean;
-}
-
-const AuthContext = createContext<AuthContextType | null>(null);
-
-export function useAuth() {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error('useAuth must be used within AuthProvider');
-  }
-  return context;
-}
+// Note: The AuthContext and useAuth hook are defined in providers/AuthProvider.
+// This file is responsible only for the stateful implementation used by the provider.
 
 export function useAuthState() {
   const [user, setUser] = useState<User | null>(null);

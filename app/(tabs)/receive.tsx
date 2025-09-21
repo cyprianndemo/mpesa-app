@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, Share } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
 import { Download } from 'lucide-react-native';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../providers/AuthProvider';
 import { generateQRSession } from '../../services/qrService';
 
 export default function ReceiveScreen() {
